@@ -28,9 +28,9 @@ inline void initTemperaturePatch(double *__restrict__ u, size_t globalNumCellsX,
 
     // compute local and global pulse position
     auto globalX = globalNumCellsX / 3;
-    auto globalY = globalNumCellsY * 2 / 3;
-    auto localX = globalX - offsetX;
-    auto localY = globalY - offsetY;
+    auto globalY = globalNumCellsY / 3;
+    auto localX = globalX - offsetX + 1;
+    auto localY = globalY - offsetY + 1;
     
     // inject pulse if its position is included in the current patch
     if (globalX >= offsetX && globalX < offsetX + localNumCellsX &&
